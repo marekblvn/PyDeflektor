@@ -20,6 +20,8 @@ class Level:
 
         self.source = None
         self.source_id = None
+        self.max_level = None
+
         self.all_sprites = pygame.sprite.Group()
         self.wall_group = pygame.sprite.Group()
         self.texture_wall_group = pygame.sprite.Group()
@@ -29,18 +31,17 @@ class Level:
         self.target_group = pygame.sprite.Group()
 
 
-        with open(get_level("levels.json"), "r") as json_file:
+        with open(get_path("levels.json"), "r") as json_file:
             level_file = json.load(json_file)
 
-            #TODO: Find correct paths to data:
+            self.max_level = len(level_file)
+            self.tile_size = level_file["Level_" + str(level_num)][0]["TileSize"]
+            self.grid_width = level_file["Level_" + str(level_num)][0]["GridWidth"]
+            self.grid_height = level_file["Level_" + str(level_num)][0]["GridHeight"]
+            self.source_id = level_file["Level_" + str(level_num)][0]["SourceId"]
+            self.countdown = level_file["Level_" + str(level_num)][0]["Countdown"]
 
-            self.tile_size = level_file[f"level_{level_num}"]
-            self.grid_width = level_file[f"level_{level_num}"]
-            self.grid_height = level_file[f"level_{level_num}"]
-            self.source_id = level_file[f"level_{level_num}"]
-            self.countdown = level_file[f"level_{level_num}"]
-
-            self.data = level_file[f"level_{level_num}"][0]["data"]
+            self.data = level_file["Level_" + str(level_num)][0]["Data"]
 
 
         self.data = [(self.data[i:i + self.grid_width]) for i in range(0, self.grid_width * self.grid_height, self.grid_width)]

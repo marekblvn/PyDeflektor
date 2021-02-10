@@ -1,6 +1,6 @@
 from play import Play
 
-def main():
+if __name__ == "__main__":
 
     i = 1
 
@@ -13,15 +13,15 @@ def main():
 
         if p.state == "level_fin":
 
-            i += 1
+            if i < p.level.max_level:
 
-            try:
+                i += 1
 
                 p = Play(i)
                 p.state = "ready"
 
-            except FileNotFoundError:
-            
+
+            elif i >= p.level.max_level:
 
                 p.state = "end"
 
@@ -29,7 +29,3 @@ def main():
 
         p.clock.tick(120)
 
-
-
-
-main()

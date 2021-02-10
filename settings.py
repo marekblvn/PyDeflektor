@@ -1,9 +1,9 @@
 import os, pygame
 
 # SUPPORTING FUNCTIONS
-def get_level(f):
+def get_path(f):
 
-    return os.path.dirname(os.path.realpath(__file__)) + "/levels/" + f
+    return os.path.dirname(os.path.realpath(__file__)) + "/" + f
 
 def get_texture(f):
 
