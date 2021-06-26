@@ -1,5 +1,5 @@
 import pygame, json
-from settings import *
+from settings import get_path
 from game_objects import Wall, Source, Mirror, Tracer, Target
 
 

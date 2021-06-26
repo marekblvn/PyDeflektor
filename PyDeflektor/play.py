@@ -1,5 +1,5 @@
 import pygame, sys
-from settings import *
+from settings import mouse_cursor, get_texture, get_path, BLACK
 from level import Level
 from game_objects import Template
 

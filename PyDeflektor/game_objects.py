@@ -1,5 +1,5 @@
 import pygame, math
-from settings import *
+from settings import get_texture, YELLOW
 
 
 class Wall(pygame.sprite.Sprite):
